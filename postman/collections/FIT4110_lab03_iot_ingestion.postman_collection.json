@@ -41,9 +41,9 @@
               "raw": "{\n  \"sensorId\": \"SENSOR-XYZ-01\",\n  \"value\": 25.5,\n  \"status\": \"active\"\n}"
             },
             "url": {
-              "raw": "{{baseUrl}}/telemetry/mock-check",
+              "raw": "{{baseUrl}}/readings",
               "host": [ "{{baseUrl}}" ],
-              "path": [ "telemetry", "mock-check" ]
+              "path": [ "readings" ]
             }
           },
           "response": []
@@ -77,9 +77,9 @@
               "raw": "{\n  \"sensorId\": \"SENSOR-XYZ-01\",\n  \"value\": 25.5,\n  \"status\": \"active\"\n}"
             },
             "url": {
-              "raw": "{{baseUrl}}/telemetry/mock-check",
+              "raw": "{{baseUrl}}/readings",
               "host": [ "{{baseUrl}}" ],
-              "path": [ "telemetry", "mock-check" ]
+              "path": [ "readings" ]
             }
           },
           "response": []
@@ -115,9 +115,9 @@
               "raw": "{\n  \"status\": \"active\"\n}"
             },
             "url": {
-              "raw": "{{baseUrl}}/telemetry/mock-check",
+              "raw": "{{baseUrl}}/readings",
               "host": [ "{{baseUrl}}" ],
-              "path": [ "telemetry", "mock-check" ]
+              "path": [ "readings" ]
             }
           },
           "response": []
@@ -153,9 +153,9 @@
               "raw": "{\n  \"sensorId\": \"SENSOR-XYZ-01\",\n  \"value\": 150.0,\n  \"status\": \"active\"\n}"
             },
             "url": {
-              "raw": "{{baseUrl}}/telemetry/mock-check",
+              "raw": "{{baseUrl}}/readings",
               "host": [ "{{baseUrl}}" ],
-              "path": [ "telemetry", "mock-check" ]
+              "path": [ "readings" ]
             }
           },
           "response": []
@@ -186,4 +186,3 @@
     }
   ]
 }
-  

@@ -1,11 +1,19 @@
 openapi: 3.0.3
 info:
   title: Smart Campus IoT Ingestion Service
+  description: API Ingestion service for collecting telemetry data from campus IoT sensors.
   version: 1.0.0
+  contact:
+    name: Nhóm B1
+    email: hoanvan2k5@gmail.com
 paths:
   /telemetry/mock-check:
     post:
       summary: Submit IoT Sensor Readings
+      description: Sends real-time telemetry data from registered campus IoT sensors to the ingestion core.
+      operationId: submitTelemetryReadings
+      tags:
+        - Telemetry
       security:
         - BearerAuth: []
       requestBody:
