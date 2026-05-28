@@ -100,7 +100,10 @@ components:
           example: CAM01
         label:
           type: string
-          enum: [person, vehicle, unknown]
+          enum:
+            - person
+            - vehicle
+            - unknown
           example: person
         confidence:
           type: number
@@ -109,7 +112,10 @@ components:
           example: 0.91
         risk_level:
           type: string
-          enum: [low, medium, high]
+          enum:
+            - low
+            - medium
+            - high
           example: medium
 
     HealthResponse:
@@ -118,7 +124,8 @@ components:
       properties:
         status:
           type: string
-          enum: [ok]
+          enum:
+            - ok
           example: ok
         service:
           type: string
