@@ -16,7 +16,7 @@ jobs:
     - name: Install Dependencies
       run: |
         npm install
-        npm install -g newman newman-reporter-htmlextra @stoplight/prism-cli
+        npm install -g newman newman-reporter-htmlextra @stoplight/prism-cli wait-on
 
     - name: Lint OpenAPI contracts
       run: |
@@ -24,15 +24,14 @@ jobs:
 
     - name: Start Prism mock servers
       run: |
-        # Chạy ngầm Mock Server IoT (Port 4010)
-        npx @stoplight/prism-cli mock contracts/iot-ingestion.openapi.yaml -p 4010 --host 0.0.0.0 &
-        # Chạy ngầm Mock Server AI Vision (Port 4011)
-        npx @stoplight/prism-cli mock contracts/ai-vision.openapi.yaml -p 4011 --host 0.0.0.0 &
+        # Dùng nohup để giữ mock server chạy ngầm liên tục trên GitHub Actions
+        nohup npx @stoplight/prism-cli mock contracts/iot-ingestion.openapi.yaml -p 4010 --host 0.0.0.0 > prism-iot.log 2>&1 &
+        nohup npx @stoplight/prism-cli mock contracts/ai-vision.openapi.yaml -p 4011 --host 0.0.0.0 > prism-vision.log 2>&1 &
         sleep 5
 
     - name: Wait for mock servers
       run: |
-        npx wait-on http://localhost:4010/health http://localhost:4011/health --timeout 30000
+        wait-on http://localhost:4010/health http://localhost:4011/health --timeout 30000
 
     - name: Run Newman contract tests
       run: |
