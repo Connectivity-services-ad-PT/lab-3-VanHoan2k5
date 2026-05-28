@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.3
 info:
   title: Smart Campus — AI Vision API
   version: 0.3.0
@@ -31,12 +31,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthResponse"
-              examples:
-                ok:
-                  value:
-                    status: ok
-                    service: ai-vision
-                    version: 0.3.0
 
   /detect:
     post:
@@ -50,11 +44,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/DetectionRequest"
-            examples:
-              valid_url:
-                value:
-                  camera_id: CAM01
-                  image_url: https://example.com
       responses:
         "200":
           description: Kết quả nhận diện
@@ -62,42 +51,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/DetectionResponse"
-              examples:
-                detected:
-                  value:
-                    detection_id: DET001
-                    camera_id: CAM01
-                    label: person
-                    confidence: 0.91
-                    risk_level: medium
         "400":
           description: Request không hợp lệ
           content:
-            application/problem+json:
+            application/json:
               schema:
                 $ref: "#/components/schemas/ProblemDetails"
-              examples:
-                invalid_image:
-                  value:
-                    type: https://smart-campus.local
-                    title: Invalid image
-                    status: 400
-                    detail: image_url or image_base64 is required
-                    instance: /detect
         "401":
           description: Thiếu hoặc sai token
           content:
-            application/problem+json:
+            application/json:
               schema:
                 $ref: "#/components/schemas/ProblemDetails"
-              examples:
-                unauthorized:
-                  value:
-                    type: https://smart-campus.local
-                    title: Unauthorized
-                    status: 401
-                    detail: Missing or invalid bearer token
-                    instance: /detect
 
 components:
   securitySchemes:
