@@ -4,10 +4,8 @@ info:
   version: 0.3.0
   contact:
     name: Nhóm B1
-    email:hoanvan2k5@gmail.com
-  description: |
-    Contract mock tối thiểu cho consumer-side smoke test trong FIT4110 Lab 03.
-    File này giúp Camera Stream hoặc Core Business gọi thử AI Vision khi service thật chưa hoàn thiện.
+    email: hoanvan2k5@gmail.com
+  description: Contract mock tối thiểu cho consumer-side smoke test trong FIT4110 Lab 03. File này giúp Camera Stream hoặc Core Business gọi thử AI Vision khi service thật chưa hoàn thiện.
 servers:
   - url: http://localhost:4011
     description: Prism mock server for AI Vision
@@ -56,7 +54,7 @@ paths:
               valid_url:
                 value:
                   camera_id: CAM01
-                  image_url: https://example.com/frame.jpg
+                  image_url: https://example.com
       responses:
         "200":
           description: Kết quả nhận diện
@@ -81,7 +79,7 @@ paths:
               examples:
                 invalid_image:
                   value:
-                    type: https://smart-campus.local/problems/invalid-image
+                    type: https://smart-campus.local
                     title: Invalid image
                     status: 400
                     detail: image_url or image_base64 is required
@@ -95,7 +93,7 @@ paths:
               examples:
                 unauthorized:
                   value:
-                    type: https://smart-campus.local/problems/unauthorized
+                    type: https://smart-campus.local
                     title: Unauthorized
                     status: 401
                     detail: Missing or invalid bearer token
@@ -120,7 +118,7 @@ components:
         image_url:
           type: string
           format: uri
-          example: https://example.com/frame.jpg
+          example: https://example.com
         image_base64:
           type: string
           description: Chuỗi base64 nếu không dùng image_url

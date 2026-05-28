@@ -6,6 +6,9 @@ info:
   contact:
     name: Nhóm B1
     email: hoanvan2k5@gmail.com
+tags:
+  - name: Telemetry
+    description: IoT Sensor data telemetry operations
 paths:
   /telemetry/mock-check:
     post:
