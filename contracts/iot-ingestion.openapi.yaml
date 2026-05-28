@@ -9,7 +9,28 @@ info:
 tags:
   - name: Telemetry
     description: IoT Sensor data telemetry operations
+  - name: System
+    description: Health and runtime information
 paths:
+  /health:
+    get:
+      summary: Check health status
+      description: Returns the health status of the IoT ingestion mock server.
+      operationId: getIotHealth
+      tags:
+        - System
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+
   /telemetry/mock-check:
     post:
       summary: Submit IoT Sensor Readings
